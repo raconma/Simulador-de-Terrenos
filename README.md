@@ -1,5 +1,5 @@
 # Simulador-de-Terrenos
-Trabajo de fin de grado 2017-2018 '\n'
+Trabajo de fin de grado 2017-2018. 
 Para correr el programa hay que hacer uso del mandato plot_terreno
 plot_terreno tiene tres argumentos (fichero,poly,color)
       fichero: el nombre del fichero entre comillas dobles, debe estar en la misma carpeta que el código,
