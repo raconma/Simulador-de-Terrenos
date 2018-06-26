@@ -44,7 +44,7 @@ def plot_terreno(fichero,poly,color):
     if(espaciado == 5):
         altura_punto_invisible = 2500
     elif(espaciado == 25):
-        altura_punto_invisible = 2000
+        altura_punto_invisible = 4000
     elif(espaciado == 200):
         altura_punto_invisible = 10000
     x,kx = [0]*columnas,0
