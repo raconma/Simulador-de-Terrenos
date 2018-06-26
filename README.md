@@ -1,7 +1,7 @@
 # Simulador-de-Terrenos
 Trabajo de fin de grado 2017-2018.<br />  
 Para correr el programa hay que hacer uso del mandato plot_terreno<br />
-plot_terreno tiene tres argumentos (fichero,poly,color)<br />
+plot_terreno tiene tres argumentos (fichero,poly,color)<br /><br />
       fichero: el nombre del fichero entre comillas dobles, debe estar en la misma carpeta que el código,si está en otra carpeta se debe especificar el path completo.
                Estos ficheros deben descargarse de http://centrodedescargas.cnig.es/CentroDescargas/index.jsp en la parte de
                modelos digitales de terreno. Son archivos con extensión .asc , el programa acepta pasos de malla de 5m, 25m y 200m.<br /><br />
