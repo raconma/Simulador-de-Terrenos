@@ -148,8 +148,7 @@ def actualizar_terreno(triang,x,y,z,nRandom,matriz_alturas,filas,columnas,espaci
             z = np.append(z,b2[2])
      
         else:
-            """ELSE U OTRO MÉTODO DIFERENTE (BORRAR VS AÑADIR EN DIFERENTES METODOS)
-            cojo el índice de un punto aleatorio del triángulo actual"""
+            """cojo el índice de un punto aleatorio del triángulo actual"""
             ind_punto_coplanario = tri_actual[random.randint(0,2)]
             indice_vecinos = find_neighbors(ind_punto_coplanario,triang)
             if(len(indice_vecinos) < 3):
@@ -223,7 +222,7 @@ def borrar_punto_de_listas(punto,x,y,z):
         x,y,z = np.delete(x,pos),np.delete(y,pos),np.delete(z,pos)
     return x,y,z
 
-"""stackoverflow"""
+"""stackoverflow: https://stackoverflow.com/questions/12374781/how-to-find-all-neighbors-of-a-given-point-in-a-delaunay-triangulation-using-sci"""
 def find_neighbors(pindex, triang):
     """Fan del vertice"""
     return triang.vertex_neighbor_vertices[1][triang.vertex_neighbor_vertices[0][pindex]:triang.vertex_neighbor_vertices[0][pindex+1]]
