@@ -27,8 +27,16 @@ def lectura_fichero(fichero):
     alturas = [y for x in numbers_float for y in x]
     return alturas,FILAS,COLUMNAS,ESPACIADO
 
+"""
+def isla(alturas):
+    for i in range(len(alturas)):
+        if alturas[i] == -999.0:
+            alturas[i] = -20
+    return alturas
+"""
 
 def plot_terreno(fichero,poly,color):
+    global triangulacion_final
     npoly,vueltas = 0,0
     if(poly == 'lowpoly'):
         npoly = 500
@@ -40,13 +48,14 @@ def plot_terreno(fichero,poly,color):
         npoly = 5000
         vueltas = 100
     alturas, filas, columnas, espaciado = lectura_fichero(fichero)[0],lectura_fichero(fichero)[1],lectura_fichero(fichero)[2],lectura_fichero(fichero)[3]     
+    #alturas = isla(alturas)
     altura_punto_invisible = 0
     if(espaciado == 5):
         altura_punto_invisible = 2500
     elif(espaciado == 25):
         altura_punto_invisible = 4000
     elif(espaciado == 200):
-        altura_punto_invisible = 10000
+        altura_punto_invisible = 9000
     x,kx = [0]*columnas,0
     y,ky = [0]*filas,0    
     for xi in range(columnas):
@@ -97,18 +106,19 @@ def plot_terreno(fichero,poly,color):
     
     #z=np.zeros(len(x))
     #ISLA: vmin = -700 queda bien
-    ax.plot_trisurf(x, y, z, triangles=triang.simplices, cmap=color, vmin = -700)
+    ax.plot_trisurf(x, y, z, triangles=triang.simplices, cmap=color, vmin = 0)
 
     #ax.plot_trisurf(y, x, z)
     #ax.plot_wireframe(x, y, z)
     ax.scatter(1, 1, altura_punto_invisible, c='whitesmoke')
     plt.show()
+    triangulacion_final = triang
     print(len(x),len(y),len(z))
 
 
 """
 
-triangularTerreno: triangula y después coge triángulos aleatorios calcula su centro y 
+triangularTerreno: triangula y después coge triángulos aleatorios calcula su centroide y 
 comprueba si la altura se aleja mucho (la compara con Epsilon)
 nRandom es el número de triángulos a mirar
 epsilon es el valor para comprobar si añades el punto
@@ -233,4 +243,12 @@ plot_terreno("fichero", 'lowpoly' o 'highpoly' o '_____' = caso neutral,color)
 colores por ejemplo = 'magma', 'terrain', 'gist_earth', 'gist_ncar', 'gnuplot', 'gnuplot2', 'nipy_spectral', 'CMRmap' 
 """
 
-plot_terreno("D:\\ronda5.asc",'lowpoly','magma')
+archivo = "D:\\Raúl\\universidad\\TFG\\código\\_______________.asc"
+
+plot_terreno(archivo,'lowpoly','CMRmap')
+
+text_file = open("Output.txt", "w")
+text_file.write(str(triangulacion_final))
+text_file.close()
+print('a')
+
