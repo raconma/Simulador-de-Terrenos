@@ -7,6 +7,6 @@ plot_terreno tiene tres argumentos (fichero,poly,color)<br /><br />
                modelos digitales de terreno. Son archivos con extensión .asc , el programa acepta pasos de malla de 5m, 25m y 200m.<br /><br />
       poly: indica la resolución del terreno. Las tres opciones de menor a mayor 'lowpoly', '' ó 'highpoly'.<br /><br />
       color: colormaps del terreno, especificados en la documentación de matplotlib (https://matplotlib.org/users/colormaps.html).<br /><br />
-
-
+A poder ser, no se debe introducir zonas con mar.
+<br />
 Ejemplo de uso: plot_terreno("7picos.asc",'','magma') <br /> plot_terreno("D:\\naranjobulnes200.asc",'lowpoly','CMRmap')     
